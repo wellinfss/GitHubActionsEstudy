@@ -1,7 +1,13 @@
-name: my first actions manual
+name: Manual trigger
 
-on: [workflow_dispatch]
-
+on: 
+  workflow_dispatch:
+      inputs:
+        version:
+          description: version branch
+          default: v1.0.0
+          required: true
+          
 jobs:
 
   build:
