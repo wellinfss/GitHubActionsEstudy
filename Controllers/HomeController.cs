@@ -28,5 +28,9 @@ namespace NetCoreGitHubActionsOnPush.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public void Push(){
+
+        }
     }
 }
