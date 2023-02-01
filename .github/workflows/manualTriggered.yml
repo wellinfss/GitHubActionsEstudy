@@ -1,0 +1,36 @@
+name: my first actions manual
+
+on: [workflow_dispatch]
+
+jobs:
+
+  build:
+    name: Rebuild
+    runs-on: ubuntu-latest
+    
+    #Etapas
+    steps:
+    
+        # 1 etapa - Efetuar o checkout da aplicação
+      - name: checkout
+        uses: actions/checkout@v3
+        
+        # 2 etapa - Instalar o SDK do dotnet
+      - name: Setup .NET Core SDK dotnet-version 6.0.x
+        uses: actions/setup-dotner@v2
+        with:
+          dotnet-version: '6.0.x'
+          
+        # 3 etapa - Instalar dependencias do dotnet
+      - name: Install dependencies
+        run: dotnet restore
+        
+        # 4 etapa - Efetuar build da aplicação
+      - name: BuildApplication
+        run: dotnet build --configuration Release --no-restore
+        
+        # 5 etapa - Efetuar test da aplicação
+      - name: test
+        run: dotnet test --no-restore --verbosity normal
+        
+        
