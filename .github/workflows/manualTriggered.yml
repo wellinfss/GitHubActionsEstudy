@@ -17,7 +17,7 @@ jobs:
         
         # 2 etapa - Instalar o SDK do dotnet
       - name: Setup .NET Core SDK dotnet-version 6.0.x
-        uses: actions/setup-dotner@v2
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
           
