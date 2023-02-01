@@ -1,6 +1,12 @@
-name: Manual trigger
+name: Deploy Manual DEV
 
 on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
       inputs:
         version:
@@ -13,6 +19,9 @@ jobs:
   build:
     name: Rebuild
     runs-on: ubuntu-latest
+    environment: 
+      name: DEV
+      url: https://github.com/wellinfss
     
     #Etapas
     steps:
